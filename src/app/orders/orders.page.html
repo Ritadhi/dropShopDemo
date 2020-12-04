@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- see how there are no complicated things here -->
+    </ion-buttons>
+    <ion-title><i class="fa fa-truck"></i>Orders</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small"><span class="material-icons ion-button" style="margin-left: auto; text-align: right;"
+          type="button" [routerLink]="['/cart']">shopping_cart</span><sup style="color: red;" *ngIf="i>0">{{i}}</sup></ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="scroller" style="background-color: white;">
+    <ion-card *ngFor="let item of items; let i = index;">
+      <ion-row>
+        <ion-card-header>
+          <ion-img [src]="itemDetails[i].coverImage" style="width: 100px; height: 100px"></ion-img>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <ion-row style="margin: 20px;">
+            <div style="max-width: 100%; min-width: 100%;">
+              <ion-card-title>{{itemDetails[i].name}}</ion-card-title>
+              <h4>{{itemDetails[i].description}}</h4>
+              <h5>Total Item Value: <b>Rs. {{items[i].totalValue[0] * items[i].totalValue[1]}}</b></h5>
+              <br>
+              <h5>Order Status: <b>{{items[i].status}}</b></h5>
+              <h5>Delivery Address: <b>{{items[i].address | slice:0:10}}...</b></h5>
+            </div>
+  
+          </ion-row>
+        </ion-card-content>
+  
+      </ion-row>
+    </ion-card>
+  </ion-content>

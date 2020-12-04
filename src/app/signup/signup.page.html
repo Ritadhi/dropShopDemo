@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- see how there are no complicated things here -->
+    </ion-buttons>
+    <ion-title><span class="material-icons">login</span>Sign Up</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small"><span class="material-icons ion-button" style="margin-left: auto; text-align: right;" type="button" (click)=cart()>shopping_cart</span></ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="signupForm">
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input formControlName="firstname" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input formControlName="lastname" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+  </form>
+  <div style="text-align: end;">
+    <ion-button size="small" [disabled]="!signupForm.valid" (click)=signup()>Register</ion-button>
+  </div>
+</ion-content>

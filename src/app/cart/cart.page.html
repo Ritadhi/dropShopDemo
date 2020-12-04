@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- see how there are no complicated things here -->
+    </ion-buttons>
+    <ion-title><span class="material-icons">shopping_cart</span>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="scroller" style="background-color: white;">
+  <ion-card *ngFor="let item of items; let i = index;">
+    <ion-row>
+      <ion-card-header>
+        <ion-img [src]="itemDetails[i].coverImage" style="width: 200px; height: 200px; margin-left: 10px;"></ion-img>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-row style="margin: 20px;">
+          <div style="max-width: 100%; min-width: 100%;">
+            <ion-card-title>{{itemDetails[i].name}}</ion-card-title>
+            <h5>{{itemDetails[i].description}}</h5>
+            <h4>Total Item Value: Rs. {{number[i] * items[i].totalValue[1]}}</h4>
+
+          </div>
+          <ion-row style="justify-content: space-around; max-width: 100%; min-width: 100%;">
+            <ion-button color="light" size="small"><i class="fa fa-minus" style="font-size: 16px; margin-right: 8px;"
+                aria-hidden="true" [hidden]="1>=number[i]" (click)=remove(i)></i><i class="fa fa-trash-o"
+                aria-hidden="true" [hidden]="number[i]>1" (click)=delete(i)
+                style="font-size: 16px; margin-right: 8px;"></i>{{number[i]}}<i class="fa fa-plus"
+                style="font-size: 16px; margin-left: 8px;" aria-hidden="true" (click)=addValue(i)></i></ion-button>
+            <ion-button color="danger" size="small" (click)=buy(i)>Buy Now</ion-button>
+          </ion-row>
+
+        </ion-row>
+      </ion-card-content>
+
+    </ion-row>
+  </ion-card>
+</ion-content>

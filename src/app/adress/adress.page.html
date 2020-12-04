@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Place Order</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small"><span class="material-icons ion-button" style="margin-left: auto; text-align: right;"
+          type="button" (click)="dismiss()">highlight_off</span></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-row>
+      <ion-card-header>
+        <ion-img [src]="image" style="width: 50px; height: 50px;"></ion-img>
+      </ion-card-header>
+      <div>
+        <h5>{{productName}}</h5>
+        <h6>Total Price: <b>Rs. {{price}}</b></h6>
+      </div>
+
+    </ion-row>
+  </ion-card>
+      <form [formGroup]="addressForm">
+        <!-- <ion-item>
+          <ion-label position="floating">Address</ion-label>
+          <ion-input formControlName="address" type="text"></ion-input>
+        </ion-item> -->
+        <ion-item>
+          <ion-label position="floating">Address</ion-label>
+          <ion-textarea formControlName="address" type="text" rows="8"></ion-textarea>
+        </ion-item>
+      </form>
+      <div style="text-align: end;">
+        <ion-button size="small" [disabled]="!addressForm.valid" (click)=buy()>Place Order</ion-button>
+      </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- see how there are no complicated things here -->
+    </ion-buttons>
+    <ion-title><span class="material-icons">category</span>Products</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small"><span class="material-icons ion-button" style="margin-left: auto; text-align: right;"
+          type="button" (click)="cart('Please login to continue to cart')">shopping_cart</span><sup style="color: red;" *ngIf="i+n>0">{{i+n}}</sup></ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="scroller" style="background-color: white;">
+  <ion-row style="justify-content: space-around;">
+    <ion-card style="min-width: 175px; min-height: 250px; max-width: 200px; max-height: 300px;" *ngFor="let prod of products; let i = index;">
+      <ion-card-header>
+        <ion-img [src]="products[i].coverImage"></ion-img>
+        <ion-card-title>{{products[i].name}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <h5>{{products[i].description}}</h5>
+        <ion-row style="justify-content: space-around;">
+          <ion-button color="light" size="small" *ngIf="!authorized" (click)="cart('Please login to add to cart')">Add</ion-button>
+          <ion-button color="light" size="small" *ngIf="authorized"><i class="fa fa-minus" style="font-size: 16px; margin-right: 8px;" aria-hidden="true" [hidden]="0>=number[i]" (click)=remove(i)></i>{{number[i]}}<i class="fa fa-plus" style="font-size: 16px; margin-left: 8px;" aria-hidden="true" (click)=add(i)></i></ion-button>
+          <ion-button color="danger" size="small" [routerLink]="['/cart']">Rs. {{(number[i]>0?number[i]:1) * products[i].price}}</ion-button>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+</ion-content>

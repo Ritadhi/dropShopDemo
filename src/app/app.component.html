@@ -1,0 +1,45 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ion-app>
+  <ion-split-pane contentId="main">
+    <ion-menu side="start" menuId="first" contentId="main">
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-menu-toggle auto-hide="false" (click)="setPage()" *ngIf="!logged">
+              <ion-item [routerLink]="['/login']" [class.active]="setUrl === 'login'"><i class="fa fa-sign-in"></i>Login</ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" (click)="setPage()" *ngIf="!logged">
+              <ion-item [routerLink]="['/signup']" [class.active]="setUrl === 'signup'"><span class="material-icons">login</span>Signup</ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" (click)="setPage()">
+              <ion-item [routerLink]="['/home']" [class.active]="setUrl === 'home'"><span class="material-icons">category</span>Products</ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" (click)="setPage()" *ngIf="logged">
+              <ion-item [routerLink]="['/profile']" [class.active]="setUrl === 'profile'"><i class="fa fa-user-circle-o"></i>Profile</ion-item>
+            </ion-menu-toggle>    
+            <ion-menu-toggle auto-hide="false" (click)="setPage()" *ngIf="logged">
+              <ion-item [routerLink]="['/cart']" [class.active]="setUrl === 'cart'"><span class="material-icons">shopping_cart</span>Your Cart</ion-item>
+            </ion-menu-toggle>  
+            <ion-menu-toggle auto-hide="false" (click)="setPage()" *ngIf="logged">
+              <ion-item [routerLink]="['/orders']" [class.active]="setUrl === 'orders'"><i class="fa fa-truck"></i>Your Orders</ion-item>
+            </ion-menu-toggle>  
+            <ion-menu-toggle auto-hide="false" (click)=logout() *ngIf="logged">
+              <ion-item  [routerLink]="['/home']"><i class="fa fa-sign-out"></i>Logout</ion-item>
+            </ion-menu-toggle>  
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+      
+      
+      
+      <ion-router-outlet style="padding: 25px;" id="main"></ion-router-outlet>
+      </ion-split-pane>
+  <!-- <div>
+      <ion-router-outlet></ion-router-outlet>
+  </div> -->
+</ion-app>

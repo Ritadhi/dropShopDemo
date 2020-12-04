@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- see how there are no complicated things here -->
+    </ion-buttons>
+    <ion-title><i class="fa fa-user-circle-o"></i>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small"><span class="material-icons ion-button" style="margin-left: auto; text-align: right;"
+          type="button" [routerLink]="['/cart']">shopping_cart</span><sup style="color: red;" *ngIf="i>0">{{i}}</sup></ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>User Info</ion-card-subtitle>
+          <ion-card-title></ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <h4><b>{{name}}</b></h4>
+          <h5>{{email}}</h5>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
