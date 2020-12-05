@@ -23,8 +23,10 @@
             <div style="max-width: 100%; min-width: 100%;">
               <ion-card-title>{{itemDetails[i].name}}</ion-card-title>
               <h4>{{itemDetails[i].description}}</h4>
+              <h5>Total Item Count: <b>{{items[i].totalValue[0]}}</b></h5>
               <h5>Total Item Value: <b>Rs. {{items[i].totalValue[0] * items[i].totalValue[1]}}</b></h5>
               <br>
+              <h5>ordered On: <b>{{items[i].orderDate | date: "EE, MMM dd, yyyy"}}</b></h5>
               <h5>Order Status: <b>{{items[i].status}}</b></h5>
               <h5>Delivery Address: <b>{{items[i].address | slice:0:10}}...</b></h5>
             </div>
