@@ -17,12 +17,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 // var firebase = require('firebase/app');
 
 let firebaseConfig = {
-  apiKey: "AIzaSyAnJ5dadt7JQOQeO2YSRbbrYmUNPVDocYU",
-  authDomain: "dropshop-demo-488ad.firebaseapp.com",
-  projectId: "dropshop-demo-488ad",
-  storageBucket: "dropshop-demo-488ad.appspot.com",
-  messagingSenderId: "685249300930",
-  appId: "1:685249300930:web:daafe8022029c1fa556e5b"
+  apiKey: "APIKEY
+  authDomain: "AUTHDOMAIN",
+  projectId: "PROJECTID",
+  storageBucket: "BUCKET",
+  messagingSenderId: "SENDERID",
+  appId: "APPID"
 };
 // firebase.initializeApp(firebaseConfig);
 
