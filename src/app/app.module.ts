@@ -17,7 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 // var firebase = require('firebase/app');
 
 let firebaseConfig = {
-  apiKey: "APIKEY
+  apiKey: "APIKEY",
   authDomain: "AUTHDOMAIN",
   projectId: "PROJECTID",
   storageBucket: "BUCKET",
